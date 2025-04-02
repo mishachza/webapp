@@ -99,7 +99,7 @@ body {
 
 .container {
    height: 100vh;
-   overflow: hidden; /* Убран скролл */
+   /* overflow: hidden; Убран скролл */
    scrollbar-width: none;
 }
 
