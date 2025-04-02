@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container" @wheel.passive="onWheel">
+    <div class="container" @wheel.passive="onWheel" @touchmove.passive="onTouchMove" @touchstart.passive="onTouchStart">
       <transition :name="transitionName" mode="out-in">
         <router-view :key="$route.fullPath"></router-view>
       </transition>
@@ -8,13 +8,14 @@
   </div>
 </template>
 
+
 <script setup>
 import { RouterView, useRouter } from 'vue-router';
 import { ref } from 'vue';
 
-
 const router = useRouter();
 let scrollDelta = 0;
+let touchStartY = 0;
 const transitionName = ref('slide-down');
 
 const onWheel = (event) => {
@@ -28,10 +29,34 @@ const onWheel = (event) => {
     transitionName.value = 'slide-up';
   }
 
-  if (scrollDelta > 500) { // Переход на следующую страницу при прокрутке вниз на 500 пикселей
+  if (scrollDelta > 500) {
     navigateToNextPage();
     scrollDelta = 0;
-  } else if (scrollDelta < -500) { // Переход на предыдущую страницу при прокрутке вверх на 500 пикселей
+  } else if (scrollDelta < -500) {
+    navigateToPrevPage();
+    scrollDelta = 0;
+  }
+};
+
+const onTouchStart = (event) => {
+  touchStartY = event.touches[0].clientY;
+};
+
+const onTouchMove = (event) => {
+  const deltaY = event.touches[0].clientY - touchStartY;
+
+  scrollDelta += deltaY;
+
+  if (deltaY > 0) {
+    transitionName.value = 'slide-up';
+  } else {
+    transitionName.value = 'slide-down';
+  }
+
+  if (scrollDelta > 500) {
+    navigateToNextPage();
+    scrollDelta = 0;
+  } else if (scrollDelta < -500) {
     navigateToPrevPage();
     scrollDelta = 0;
   }
@@ -47,7 +72,7 @@ const navigateToNextPage = () => {
     nextRoute = 'description';
   } else if (currentRoute === 'description') {
     nextRoute = 'about';
-  } 
+  }
 
   // Переходим на следующий маршрут
   router.push({ name: nextRoute });
@@ -60,7 +85,7 @@ const navigateToPrevPage = () => {
   // Определяем предыдущий маршрут
   let prevRoute;
   if (currentRoute === 'home') {
-    pass;
+    return;
   } else if (currentRoute === 'description') {
     prevRoute = 'home';
   } else {
@@ -71,6 +96,7 @@ const navigateToPrevPage = () => {
   router.push({ name: prevRoute });
 };
 </script>
+
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
@@ -99,7 +125,7 @@ body {
 
 .container {
    height: 100vh;
-   /* overflow: hidden; Убран скролл */
+   overflow: hidden; 
    scrollbar-width: none;
 }
 
