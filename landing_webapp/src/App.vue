@@ -53,10 +53,10 @@ const onTouchMove = (event) => {
     transitionName.value = 'slide-down';
   }
 
-  if (scrollDelta > 500) {
+  if (scrollDelta > 1300) {
     navigateToPrevPage();
     scrollDelta = 0;
-  } else if (scrollDelta < -500) {
+  } else if (scrollDelta < -1300) {
     navigateToNextPage();
     scrollDelta = 0;
   }

@@ -121,7 +121,7 @@ export default {
   flex-direction: column;
   align-items: stretch;
   text-align: center;
-  width: 70%;
+  width: 80%;
   box-sizing: border-box;
   padding: 0 20px;
 }
