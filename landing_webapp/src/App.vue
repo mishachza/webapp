@@ -1,118 +1,75 @@
 <template>
-  <div id="app">
-    <div class="container" @touchstart.passive="onTouchStart" @touchmove.passive="onTouchMove" @touchend.passive="onTouchEnd" @wheel.passive="onWheel">
-      <transition :name="transitionName" mode="out-in">
-        <router-view :key="$route.fullPath"></router-view>
-      </transition>
+  <div>
+    <div id="home-page">
+      <HomePage />
+    </div>
+    <div id="description-page">
+      <DescriptionPage />
+    </div>
+    <div id="about-page">
+      <AboutPage />
     </div>
   </div>
 </template>
 
+<script>
+import HomePage from './views/HomePage.vue';
+import DescriptionPage from './views/DescriptionPage.vue';
+import AboutPage from './views/AboutPage.vue';
 
-<script setup>
-const onTouchMove = (event) => {
-  const currentRoute = router.currentRoute.value.name;
-
-  const deltaY = event.touches[0].clientY - touchStartY;
-
-  // Проверка на первую страницу
-  if (currentRoute === 'home' && deltaY < 0) {
-    return; // Не двигаем страницу вверх на первой странице
-  }
-
-  // Проверка на последнюю страницу
-  if (currentRoute === 'about' && deltaY > 0) {
-    return; // Не двигаем страницу вниз на последней странице
-  }
-
-  scrollDelta += deltaY;
-
-  if (deltaY < 0) {
-    transitionName.value = 'slide-up'; // Перелистывание вверх
-  } else {
-    transitionName.value = 'slide-down'; // Перелистывание вниз
-  }
-
-  if (Math.abs(scrollDelta) > 500) {
-    exceededThreshold.value = true;
-  }
-
-  document.querySelector('.container').style.transform = `translateY(${deltaY}px)`;
-};
-
-const onTouchEnd = () => {
-  isTouching.value = false;
-
-  if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
-    const currentRoute = router.currentRoute.value.name;
-
-    if (currentRoute === 'home' && scrollDelta < 0) {
-      return; // Не переходим на предыдущую страницу с первой
+export default {
+  components: {
+    HomePage,
+    DescriptionPage,
+    AboutPage
+  },
+  data() {
+    return {
+      lastScrollPosition: 0
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const homePage = document.getElementById('home-page');
+      const descriptionPage = document.getElementById('description-page');
+      const aboutPage = document.getElementById('about-page');
 
-    if (currentRoute === 'about' && scrollDelta > 0) {
-      return; // Не переходим на следующую страницу с последней
-    }
-
-    if (scrollDelta < 0) {
-      navigateToNextPage();
-    } else if (scrollDelta > 0) {
-      navigateToPrevPage();
-    }
-    scrollDelta = 0;
-  } else {
-    document.querySelector('.container').style.transform = '';
-    scrollDelta = 0;
-  }
-};
-
-const onWheel = (event) => {
-  const currentRoute = router.currentRoute.value.name;
-
-  const delta = event.deltaY;
-
-  // Проверка на первую страницу
-  if (currentRoute === 'home' && delta < 0) {
-    return; // Не двигаем страницу вверх на первой странице
-  }
-
-  // Проверка на последнюю страницу
-  if (currentRoute === 'about' && delta > 0) {
-    return; // Не двигаем страницу вниз на последней странице
-  }
-
-  scrollDelta += delta;
-
-  if (delta < 0) {
-    transitionName.value = 'slide-up'; // Перелистывание вверх
-  } else {
-    transitionName.value = 'slide-down'; // Перелистывание вниз
-  }
-
-  if (Math.abs(scrollDelta) > 500) {
-    exceededThreshold.value = true;
-  }
-
-  if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
-    clearTimeout(timeoutId); // Очистите предыдущий таймаут, если есть
-    timeoutId = setTimeout(() => {
-      if (currentRoute === 'home' && scrollDelta < 0) {
-        return; // Не переходим на предыдущую страницу с первой
+      if (!homePage || !descriptionPage || !aboutPage) {
+        console.error('Элементы не найдены');
+        return;
       }
 
-      if (currentRoute === 'about' && scrollDelta > 0) {
-        return; // Не переходим на следующую страницу с последней
+      const rectHome = homePage.getBoundingClientRect();
+      const rectDescription = descriptionPage.getBoundingClientRect();
+      const rectAbout = aboutPage.getBoundingClientRect();
+
+      const currentScrollPosition = window.scrollY;
+
+      if (currentScrollPosition > this.lastScrollPosition) {
+        // Прокрутка вниз
+        if (rectDescription.top < window.innerHeight * 0.6 && rectDescription.bottom > window.innerHeight * 0.4) {
+          aboutPage.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Прокрутка вверх
+        if (rectDescription.top < window.innerHeight && rectDescription.bottom > 0) {
+          if (rectDescription.top > window.innerHeight / 2) {
+            homePage.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       }
 
-      if (scrollDelta < 0) {
-        navigateToNextPage();
-      } else if (scrollDelta > 0) {
-        navigateToPrevPage();
-      }
-      scrollDelta = 0;
-    }, 200); // Задержка в 200 мс
+      this.lastScrollPosition = currentScrollPosition;
+    }
   }
-};
+}
+
 </script>
 
 

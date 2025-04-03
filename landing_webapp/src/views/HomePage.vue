@@ -1,5 +1,5 @@
 <template>
-    <div class="column">
+    <div class="column" id="home-page">
       <div class="top-content">
         <div class="logo-block">
           {{ text1 }}

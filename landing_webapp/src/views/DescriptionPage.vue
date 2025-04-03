@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="description-page">
     <div class="left-aligned">
       <h2>TG МАСТЕР</h2>
       <h3>Лучшие инструменты по генерации прибыли в Телеграм, которые позволяют привлечь к вашему продукту или услуге целевую аудиторию </h3>

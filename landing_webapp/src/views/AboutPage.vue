@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="about-page">
     <div class="center-aligned">
       <div v-for="(item, index) in items" :key="index" class="column" ref="columns">
         <div class="row">
