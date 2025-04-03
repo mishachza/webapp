@@ -61,41 +61,9 @@ export default {
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   background-color: #131313;
-  overflow-y: hidden;
+  overflow-y: auto; /* Позволяет появиться полосе прокрутки */
   overflow-x: hidden;
   box-sizing: border-box;
-}
-
-h2, h3, button {
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-}
-
-h2 {
-  font-size: 20px;
-  color: #C4C3C3;
-  font-weight: bold;
-}
-
-h3 {
-  font-weight: 100;
-  color: #e9e9e9;
-}
-
-.left-aligned {
-  text-align: left;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  width: 70%;
-}
-
-.center-aligned {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 70%;
-  margin-bottom: 20px;
-  justify-content: space-between;
 }
 
 .column {
@@ -121,4 +89,25 @@ h3 {
   height: 50px;
   margin: 20px;
 }
+
+/* Добавьте это для управления размерами элементов */
+.center-aligned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 70%;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
+}
+
+.left-aligned {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  width: 70%;
+  flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
+}
+
 </style>

@@ -27,7 +27,19 @@ const onTouchStart = (event) => {
 };
 
 const onTouchMove = (event) => {
+  const currentRoute = router.currentRoute.value.name;
+
   const deltaY = event.touches[0].clientY - touchStartY;
+
+  // Проверка на первую страницу
+  if (currentRoute === 'home' && deltaY < 0) {
+    return; // Не двигаем страницу вверх на первой странице
+  }
+
+  // Проверка на последнюю страницу
+  if (currentRoute === 'about' && deltaY > 0) {
+    return; // Не двигаем страницу вниз на последней странице
+  }
 
   scrollDelta += deltaY;
 
@@ -48,10 +60,20 @@ const onTouchEnd = () => {
   isTouching.value = false;
 
   if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
+    const currentRoute = router.currentRoute.value.name;
+
+    if (currentRoute === 'home' && scrollDelta < 0) {
+      return; // Не переходим на предыдущую страницу с первой
+    }
+
+    if (currentRoute === 'about' && scrollDelta > 0) {
+      return; // Не переходим на следующую страницу с последней
+    }
+
     if (scrollDelta > 500) {
-      navigateToPrevPage();
-    } else if (scrollDelta < -500) {
       navigateToNextPage();
+    } else if (scrollDelta < -500) {
+      navigateToPrevPage();
     }
     scrollDelta = 0;
   } else {
@@ -61,7 +83,19 @@ const onTouchEnd = () => {
 };
 
 const onWheel = (event) => {
+  const currentRoute = router.currentRoute.value.name;
+
   const delta = event.deltaY;
+
+  // Проверка на первую страницу
+  if (currentRoute === 'home' && delta < 0) {
+    return; // Не двигаем страницу вверх на первой странице
+  }
+
+  // Проверка на последнюю страницу
+  if (currentRoute === 'about' && delta > 0) {
+    return; // Не двигаем страницу вниз на последней странице
+  }
 
   scrollDelta += delta;
 
@@ -78,6 +112,14 @@ const onWheel = (event) => {
   if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
     clearTimeout(timeoutId); // Очистите предыдущий таймаут, если есть
     timeoutId = setTimeout(() => {
+      if (currentRoute === 'home' && scrollDelta < 0) {
+        return; // Не переходим на предыдущую страницу с первой
+      }
+
+      if (currentRoute === 'about' && scrollDelta > 0) {
+        return; // Не переходим на следующую страницу с последней
+      }
+
       if (scrollDelta > 500) {
         navigateToNextPage();
       } else if (scrollDelta < -500) {
@@ -118,6 +160,7 @@ const navigateToPrevPage = () => {
   router.push({ name: prevRoute });
 };
 </script>
+
 
 
 
