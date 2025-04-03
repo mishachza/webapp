@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container" @wheel.passive="onWheel" @touchmove.passive="onTouchMove" @touchstart.passive="onTouchStart">
+    <div class="container" @touchstart.passive="onTouchStart" @touchmove.passive="onTouchMove" @touchend.passive="onTouchEnd" @wheel.passive="onWheel">
       <transition :name="transitionName" mode="out-in">
         <router-view :key="$route.fullPath"></router-view>
       </transition>
@@ -25,6 +25,7 @@ const onTouchStart = (event) => {
 };
 
 const onTouchMove = (event) => {
+
   const deltaY = event.touches[0].clientY - touchStartY;
 
   scrollDelta += deltaY;
@@ -141,6 +142,11 @@ body {
    overflow: hidden; 
    scrollbar-width: none;
 }
+
+.container {
+  transition: transform 0.5s ease;
+}
+
 
 .container::-webkit-scrollbar {
   display: none; /* Для Chrome, Safari и Opera */
