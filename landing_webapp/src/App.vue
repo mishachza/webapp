@@ -43,10 +43,10 @@ const onTouchMove = (event) => {
 const onTouchEnd = () => {
   isTouching.value = false;
 
-  if (scrollDelta > 1300) {
+  if (scrollDelta > 500) {
     navigateToPrevPage();
     scrollDelta = 0;
-  } else if (scrollDelta < -1300) {
+  } else if (scrollDelta < -500) {
     navigateToNextPage();
     scrollDelta = 0;
   }
@@ -66,10 +66,10 @@ const onWheel = (event) => {
     transitionName.value = 'slide-up';
   }
 
-  if (scrollDelta > 1300) {
+  if (scrollDelta > 500) {
     navigateToNextPage();
     scrollDelta = 0;
-  } else if (scrollDelta < -1300) {
+  } else if (scrollDelta < -500) {
     navigateToPrevPage();
     scrollDelta = 0;
   }
