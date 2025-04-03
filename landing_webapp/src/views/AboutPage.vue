@@ -30,7 +30,7 @@ import PersonalizirovannieRecomendaciiIcon from '@/components/Personalizirovanni
 export default {
   methods: {
     openLink() {
-      window.open('https://t.me/am4I4I', '_blank');
+      window.open('https://t.me/am4I4I');
     },
   },
   components: {
@@ -105,19 +105,20 @@ export default {
   min-height: 100vh;
   box-sizing: border-box;
   padding-bottom: 20px;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 
 .left-aligned {
   text-align: left;
   margin-bottom: 20px;
-  width: 70%;
 }
 
 .center-aligned {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
+  text-align: center;
+  width: 70%;
   box-sizing: border-box;
   padding: 0 20px;
 }
@@ -135,6 +136,9 @@ export default {
 
 .column p {
   font-size: 19px;
+  background-color: #0f0f0f;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .icon-column {
@@ -142,6 +146,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
 }
 
@@ -153,17 +158,21 @@ export default {
 
 .column h2, .column p {
   text-align: left;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 
 .column h2 {
   font-size: px;
   color: #C4C3C3;
+  text-align: center;
 }
 
 .row {
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  text-align: center;
+
 }
 
 .yellow-button {
@@ -197,7 +206,7 @@ export default {
 }
 
 .divider {
-  height: 2px;
+  height: 4px;
   background-color: #C4C3C3;
   border: none;
   margin: 20px 0;

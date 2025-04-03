@@ -54,10 +54,10 @@ const onTouchMove = (event) => {
   }
 
   if (scrollDelta > 500) {
-    navigateToNextPage();
+    navigateToPrevPage();
     scrollDelta = 0;
   } else if (scrollDelta < -500) {
-    navigateToPrevPage();
+    navigateToNextPage();
     scrollDelta = 0;
   }
 };
