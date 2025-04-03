@@ -71,9 +71,9 @@ const onTouchEnd = () => {
     }
 
     if (scrollDelta > 500) {
-      navigateToNextPage();
-    } else if (scrollDelta < -500) {
       navigateToPrevPage();
+    } else if (scrollDelta < -500) {
+      navigateToNextPage();
     }
     scrollDelta = 0;
   } else {
