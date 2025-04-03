@@ -10,22 +10,6 @@
 
 
 <script setup>
-import { RouterView, useRouter } from 'vue-router';
-import { ref } from 'vue';
-
-const router = useRouter();
-let scrollDelta = 0;
-let touchStartY = 0;
-const transitionName = ref('slide-down');
-const isTouching = ref(false);
-const exceededThreshold = ref(false);
-
-const onTouchStart = (event) => {
-  touchStartY = event.touches[0].clientY;
-  isTouching.value = true;
-  exceededThreshold.value = false;
-};
-
 const onTouchMove = (event) => {
   const currentRoute = router.currentRoute.value.name;
 
@@ -43,10 +27,10 @@ const onTouchMove = (event) => {
 
   scrollDelta += deltaY;
 
-  if (deltaY > 0) {
-    transitionName.value = 'slide-up';
+  if (deltaY < 0) {
+    transitionName.value = 'slide-up'; // Перелистывание вверх
   } else {
-    transitionName.value = 'slide-down';
+    transitionName.value = 'slide-down'; // Перелистывание вниз
   }
 
   if (Math.abs(scrollDelta) > 500) {
@@ -70,10 +54,10 @@ const onTouchEnd = () => {
       return; // Не переходим на следующую страницу с последней
     }
 
-    if (scrollDelta > 500) {
-      navigateToPrevPage();
-    } else if (scrollDelta < -500) {
+    if (scrollDelta < 0) {
       navigateToNextPage();
+    } else if (scrollDelta > 0) {
+      navigateToPrevPage();
     }
     scrollDelta = 0;
   } else {
@@ -99,10 +83,10 @@ const onWheel = (event) => {
 
   scrollDelta += delta;
 
-  if (delta > 0) {
-    transitionName.value = 'slide-down';
+  if (delta < 0) {
+    transitionName.value = 'slide-up'; // Перелистывание вверх
   } else {
-    transitionName.value = 'slide-up';
+    transitionName.value = 'slide-down'; // Перелистывание вниз
   }
 
   if (Math.abs(scrollDelta) > 500) {
@@ -120,44 +104,14 @@ const onWheel = (event) => {
         return; // Не переходим на следующую страницу с последней
       }
 
-      if (scrollDelta > 500) {
+      if (scrollDelta < 0) {
         navigateToNextPage();
-      } else if (scrollDelta < -500) {
+      } else if (scrollDelta > 0) {
         navigateToPrevPage();
       }
       scrollDelta = 0;
     }, 200); // Задержка в 200 мс
   }
-};
-
-let timeoutId;
-
-const navigateToNextPage = () => {
-  const currentRoute = router.currentRoute.value.name;
-
-  let nextRoute;
-  if (currentRoute === 'home') {
-    nextRoute = 'description';
-  } else if (currentRoute === 'description') {
-    nextRoute = 'about';
-  }
-
-  router.push({ name: nextRoute });
-};
-
-const navigateToPrevPage = () => {
-  const currentRoute = router.currentRoute.value.name;
-
-  let prevRoute;
-  if (currentRoute === 'home') {
-    return;
-  } else if (currentRoute === 'description') {
-    prevRoute = 'home';
-  } else {
-    prevRoute = 'description';
-  }
-
-  router.push({ name: prevRoute });
 };
 </script>
 
