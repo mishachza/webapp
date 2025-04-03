@@ -61,7 +61,7 @@ export default {
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   background-color: #131313;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -118,8 +118,8 @@ h3 {
 }
 
 .column svg {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 10px;
 }
 </style>

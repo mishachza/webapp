@@ -11,9 +11,12 @@
         <p>{{ item.description }}</p>
         <hr v-if="index < items.length - 1" class="divider" />
       </div>
+
+    </div>
+    <div class="bottom-column">
       <h2 class="last_text">Если у вас есть дополнительные вопросы или нужна помощь с конкретными аспектами продвижения в Телеграме, дайте знать!</h2>
       <button @click="openLink" class="yellow-button">Связаться</button>
-    </div>
+  </div>
   </div>
 </template>
 
@@ -175,6 +178,14 @@ export default {
 
 }
 
+.bottom-column {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+  text-align: center;
+}
+
 .yellow-button {
   background-color: #FFC000;
   color: #000000;
@@ -193,7 +204,7 @@ export default {
 
 .last_text {
   text-align: center;
-  width: 100%;
+  width: 80%;
   color: #e9e9e9;
   margin-top: 60px;
   margin-bottom: 40px;

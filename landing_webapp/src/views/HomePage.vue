@@ -85,14 +85,14 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 400;
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 
 .image {
-  width: 407px;
+  width: 300px;
   height: auto;
   margin: 20px 0; /* Добавлено для отступа между изображением и текстом/кнопкой */
 }
