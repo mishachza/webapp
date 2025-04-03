@@ -13,7 +13,7 @@
         <h2>Автоматизация рутинных процессов</h2>
       </div>
       <div class="column" id="column2">
-        <svg xmlns="http://www.w3.org/2000/svg" color="#FFC000" width="200" height="200" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23 12c0 6.075-4.925 11-11 11S1 18.075 1 12S5.925 1 12 1s11 4.925 11 11M7 13l1.5-1.5l2 2l5-5L17 10l-6.5 6.5z" clip-rule="evenodd"/></svg>        <h2>Комплексный подход</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" color="#FFC000" width="40" height="40" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23 12c0 6.075-4.925 11-11 11S1 18.075 1 12S5.925 1 12 1s11 4.925 11 11M7 13l1.5-1.5l2 2l5-5L17 10l-6.5 6.5z" clip-rule="evenodd"/></svg>        <h2>Комплексный подход</h2>
       </div>
       <div class="column" id="column3">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 70%;
+  width: 85%;
   margin-bottom: 20px;
   justify-content: space-between;
   flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
@@ -105,8 +105,9 @@ export default {
 .left-aligned {
   text-align: left;
   margin-bottom: 10px;
+  font-weight: 300;
   margin-top: 20px;
-  width: 70%;
+  width: 90%;
   flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
 }
 
