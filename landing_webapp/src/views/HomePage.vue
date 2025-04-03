@@ -75,8 +75,8 @@
   flex-direction: column;
   align-items: center;
   color: #FFC000;
-  font-size: 60px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 500;
   width: 100%;
   margin-bottom: 30px;
 }
@@ -85,7 +85,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 25px;
+  font-size: 19px;
   font-weight: 400;
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
