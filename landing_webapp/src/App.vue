@@ -18,14 +18,15 @@ let scrollDelta = 0;
 let touchStartY = 0;
 const transitionName = ref('slide-down');
 const isTouching = ref(false);
+const exceededThreshold = ref(false);
 
 const onTouchStart = (event) => {
   touchStartY = event.touches[0].clientY;
   isTouching.value = true;
+  exceededThreshold.value = false;
 };
 
 const onTouchMove = (event) => {
-
   const deltaY = event.touches[0].clientY - touchStartY;
 
   scrollDelta += deltaY;
@@ -36,23 +37,27 @@ const onTouchMove = (event) => {
     transitionName.value = 'slide-down';
   }
 
-  // Имитация сдвига без фактической прокрутки
+  if (Math.abs(scrollDelta) > 500) {
+    exceededThreshold.value = true;
+  }
+
   document.querySelector('.container').style.transform = `translateY(${deltaY}px)`;
 };
 
 const onTouchEnd = () => {
   isTouching.value = false;
 
-  if (scrollDelta > 500) {
-    navigateToPrevPage();
+  if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
+    if (scrollDelta > 500) {
+      navigateToPrevPage();
+    } else if (scrollDelta < -500) {
+      navigateToNextPage();
+    }
     scrollDelta = 0;
-  } else if (scrollDelta < -500) {
-    navigateToNextPage();
+  } else {
+    document.querySelector('.container').style.transform = '';
     scrollDelta = 0;
   }
-
-  // Сбрасываем имитацию сдвига
-  document.querySelector('.container').style.transform = '';
 };
 
 const onWheel = (event) => {
@@ -66,20 +71,28 @@ const onWheel = (event) => {
     transitionName.value = 'slide-up';
   }
 
-  if (scrollDelta > 500) {
-    navigateToNextPage();
-    scrollDelta = 0;
-  } else if (scrollDelta < -500) {
-    navigateToPrevPage();
-    scrollDelta = 0;
+  if (Math.abs(scrollDelta) > 500) {
+    exceededThreshold.value = true;
+  }
+
+  if (exceededThreshold.value && Math.abs(scrollDelta) > 500) {
+    clearTimeout(timeoutId); // Очистите предыдущий таймаут, если есть
+    timeoutId = setTimeout(() => {
+      if (scrollDelta > 500) {
+        navigateToNextPage();
+      } else if (scrollDelta < -500) {
+        navigateToPrevPage();
+      }
+      scrollDelta = 0;
+    }, 200); // Задержка в 200 мс
   }
 };
 
+let timeoutId;
+
 const navigateToNextPage = () => {
-  // Получаем текущий маршрут
   const currentRoute = router.currentRoute.value.name;
 
-  // Определяем следующий маршрут
   let nextRoute;
   if (currentRoute === 'home') {
     nextRoute = 'description';
@@ -87,15 +100,12 @@ const navigateToNextPage = () => {
     nextRoute = 'about';
   }
 
-  // Переходим на следующий маршрут
   router.push({ name: nextRoute });
 };
 
 const navigateToPrevPage = () => {
-  // Получаем текущий маршрут
   const currentRoute = router.currentRoute.value.name;
 
-  // Определяем предыдущий маршрут
   let prevRoute;
   if (currentRoute === 'home') {
     return;
@@ -105,10 +115,10 @@ const navigateToPrevPage = () => {
     prevRoute = 'description';
   }
 
-  // Переходим на предыдущий маршрут
   router.push({ name: prevRoute });
 };
 </script>
+
 
 
 
