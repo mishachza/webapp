@@ -56,7 +56,7 @@
   background-size: cover; /* Установите размер фона */
   background-position: center; /* Установите позицию фона */
   background-repeat: no-repeat; /* Установите повторение фона */
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
 }
