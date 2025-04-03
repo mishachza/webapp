@@ -1,5 +1,5 @@
 <template>
-    <div class="column" id="home-page">
+    <div class="column">
       <div class="top-content">
         <div class="logo-block">
           {{ text1 }}
@@ -85,7 +85,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 19px;
+  font-size: px;
   font-weight: 400;
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
