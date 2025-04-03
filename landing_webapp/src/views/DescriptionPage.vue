@@ -96,7 +96,7 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 85%;
+  width: 90%;
   margin-bottom: 20px;
   justify-content: space-between;
   flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
