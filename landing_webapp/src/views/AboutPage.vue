@@ -9,7 +9,6 @@
           </div>
         </div>
         <p>{{ item.description }}</p>
-        <hr v-if="index < items.length - 1" class="divider" />
       </div>
 
     </div>
@@ -22,13 +21,14 @@
 
 
 <script>
+import { createApp } from 'vue';
+import VueSmoothScroll from 'vue3-smooth-scroll';
+
 import NeuroCommentingIcon from '@/components/NeuroCommentingIcon.vue';
 import InvitingIcon from '@/components/InvitingIcon.vue';
 import OtmetkiVStoriesIcon from '@/components/OtmetkiVStoriesIcon.vue';
 import DostupKUmnomuBotuIcon from '@/components/DostupKUmnomuBotuIcon.vue';
 import PersonalizirovannieRecomendaciiIcon from '@/components/PersonalizirovannieRecomendaciiIcon.vue';
-
-
 
 export default {
   methods: {
@@ -105,7 +105,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   overflow-y: auto;
-  min-height: 100vh;
   box-sizing: border-box;
   padding-bottom: 20px;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
@@ -214,12 +213,5 @@ export default {
     display: flex;
     align-items: center;
     
-}
-
-.divider {
-  height: 4px;
-  background-color: #C4C3C3;
-  border: none;
-  margin: 20px 0;
 }
 </style>

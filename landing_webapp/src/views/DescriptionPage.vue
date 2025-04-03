@@ -83,7 +83,7 @@ h3 {
 
 .left-aligned {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 20px;
   width: 70%;
 }
@@ -94,8 +94,7 @@ h3 {
   align-items: center;
   text-align: center;
   width: 70%;
-  height: 80%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   justify-content: space-between;
 }
 
@@ -104,17 +103,17 @@ h3 {
   flex-direction: row;
   align-items: center;
   text-align: left;
-  margin: 10px;
-  width: 100%; /* Занимает всю ширину родителя */
-  box-sizing: border-box; /* Чтобы отступы не влияли на общую ширину */
-  opacity: 0; /* Изначально элементы скрыты */
-  transform: scale(0.9); /* Небольшое уменьшение */
-  transition: opacity 0.5s, transform 0.5s; /* Плавная анимация */
+  margin: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0; 
+  transform: scale(0.9);
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 .column.show {
   opacity: 1;
-  transform: scale(1); /* Увеличение при появлении */
+  transform: scale(1);
 }
 
 .column svg {
