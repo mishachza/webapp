@@ -17,6 +17,42 @@ const router = useRouter();
 let scrollDelta = 0;
 let touchStartY = 0;
 const transitionName = ref('slide-down');
+const isTouching = ref(false);
+
+const onTouchStart = (event) => {
+  touchStartY = event.touches[0].clientY;
+  isTouching.value = true;
+};
+
+const onTouchMove = (event) => {
+  const deltaY = event.touches[0].clientY - touchStartY;
+
+  scrollDelta += deltaY;
+
+  if (deltaY > 0) {
+    transitionName.value = 'slide-up';
+  } else {
+    transitionName.value = 'slide-down';
+  }
+
+  // Имитация сдвига без фактической прокрутки
+  document.querySelector('.container').style.transform = `translateY(${deltaY}px)`;
+};
+
+const onTouchEnd = () => {
+  isTouching.value = false;
+
+  if (scrollDelta > 1300) {
+    navigateToPrevPage();
+    scrollDelta = 0;
+  } else if (scrollDelta < -1300) {
+    navigateToNextPage();
+    scrollDelta = 0;
+  }
+
+  // Сбрасываем имитацию сдвига
+  document.querySelector('.container').style.transform = '';
+};
 
 const onWheel = (event) => {
   const delta = event.deltaY;
@@ -34,30 +70,6 @@ const onWheel = (event) => {
     scrollDelta = 0;
   } else if (scrollDelta < -1300) {
     navigateToPrevPage();
-    scrollDelta = 0;
-  }
-};
-
-const onTouchStart = (event) => {
-  touchStartY = event.touches[0].clientY;
-};
-
-const onTouchMove = (event) => {
-  const deltaY = event.touches[0].clientY - touchStartY;
-
-  scrollDelta += deltaY;
-
-  if (deltaY > 0) {
-    transitionName.value = 'slide-up';
-  } else {
-    transitionName.value = 'slide-down';
-  }
-
-  if (scrollDelta > 1300) {
-    navigateToPrevPage();
-    scrollDelta = 0;
-  } else if (scrollDelta < -1300) {
-    navigateToNextPage();
     scrollDelta = 0;
   }
 };
@@ -98,6 +110,7 @@ const navigateToPrevPage = () => {
 </script>
 
 
+
 <style>
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
 
@@ -131,6 +144,11 @@ body {
 
 .container::-webkit-scrollbar {
   display: none; /* Для Chrome, Safari и Opera */
+}
+
+.fake-slide {
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
 }
 
 .slide-down-enter-active,

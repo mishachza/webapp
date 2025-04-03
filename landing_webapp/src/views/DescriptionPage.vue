@@ -94,16 +94,16 @@ h3 {
   align-items: center;
   text-align: center;
   width: 70%;
-  height: 100%;
+  height: 80%;
   margin-bottom: 30px;
   justify-content: space-between;
 }
 
 .column {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin: 10px;
   width: 100%; /* Занимает всю ширину родителя */
   box-sizing: border-box; /* Чтобы отступы не влияли на общую ширину */
@@ -120,6 +120,6 @@ h3 {
 .column svg {
   width: 50px;
   height: 50px;
-  margin-bottom: 10px;
+  margin: 20px;
 }
 </style>
