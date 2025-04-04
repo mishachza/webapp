@@ -20,10 +20,7 @@
         
       </div>
       <div class="bottom-content">
-        
-        <!-- <img :src="socialImage" alt="Изображение" /> -->
         <button @click="openLink" class="yellow-button">{{ buttonText }}</button>
-        
         <svg xmlns="http://www.w3.org/2000/svg" color="white" width="40" height="40" viewBox="0 0 20 20" class="arrow-down-svg">
           <path fill="currentColor" fill-rule="evenodd" d="M16.707 10.293a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-6-6a1 1 0 1 1 1.414-1.414L9 14.586V3a1 1 0 0 1 2 0v11.586l4.293-4.293a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/>
         </svg>
@@ -37,7 +34,6 @@
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
     import telegramImage from '@/assets/telegram.png'
-    import socialImage from '@/assets/social.png'
 
     const router = useRouter()
     
@@ -96,7 +92,7 @@
   justify-content: center; /* Центрирование по горизонтали */
   text-align: center;
   color: #ffffff;
-  font-size: 400%;
+  font-size: 300%;
   font-weight: bold;
   width: 100%;
   margin-bottom: 20px;
@@ -162,18 +158,16 @@
 }
 
 .arrow-down-svg {
-  margin: 10px;
   animation: move-up-down 2s infinite;
 }
 
 .image-bottom {
   width: 100%; /* Ширина элемента */
-  height: 300px; /* Высота элемента */
-  background-image: url('@/assets/social2.jpg');
+  height: 240px; /* Высота элемента */
+  background-image: url('@/assets/social2.jpeg');
   background-size: cover; /* Изображение должно заполнить весь элемент */
   background-position: center; /* Позиция изображения */
   background-repeat: no-repeat; /* Изображение не должно повторяться */
-  margin: 20px auto; 
   margin-top: 30px;
   border-radius: 25px; /* Закругленные углы */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

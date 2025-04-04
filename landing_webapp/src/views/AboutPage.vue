@@ -121,6 +121,7 @@ export default {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-size: 25px;
   font-weight: bold;
+  animation: move-up-down 2s infinite;
 }
 
 .description-block {
@@ -176,7 +177,7 @@ export default {
 }
 
 .column h2 {
-  font-size:  20px;
+  font-size:  18px;
   color: #ffffff;
   text-align: left;
 }
