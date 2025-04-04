@@ -14,7 +14,7 @@
     </div>
     <div class="bottom-column">
       <h2 class="last_text">Если у вас есть дополнительные вопросы или нужна помощь с конкретными аспектами продвижения в Телеграме, дайте знать!</h2>
-      <button @click="openLink" class="yellow-button">Связаться</button>
+      <button @click="openLink" class="yellow-button">СВЯЗАТЬСЯ</button>
   </div>
   </div>
 </template>
