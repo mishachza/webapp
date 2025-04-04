@@ -1,20 +1,23 @@
 <template>
   <div class="container" id="about-page">
+    <div class="tg-maser-row">Что входит услугу TG Master:</div>
     <div class="center-aligned">
       <div v-for="(item, index) in items" :key="index" class="column" ref="columns">
         <div class="row">
+        </div>
+        
+        <div class="description-block">
           <div class="icon-column">
             <component :is="item.icon" width="200" height="200" />
             <h2>{{ item.title }}</h2>
           </div>
+          <p>{{ item.description }}</p>
         </div>
-        <p>{{ item.description }}</p>
       </div>
-
     </div>
     <div class="bottom-column">
-      <h2 class="last_text">Если у вас есть дополнительные вопросы или нужна помощь с конкретными аспектами продвижения в Телеграме, дайте знать!</h2>
       <button @click="openLink" class="yellow-button">СВЯЗАТЬСЯ</button>
+      <h2 class="last_text">Если у вас есть дополнительные вопросы или нужна помощь с конкретными аспектами продвижения в Телеграме, дайте знать!</h2>
   </div>
   </div>
 </template>
@@ -107,22 +110,38 @@ export default {
   overflow-y: auto;
   box-sizing: border-box;
   padding-bottom: 20px;
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+
 }
 
-.left-aligned {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.center-aligned {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+.tg-maser-row {
   text-align: center;
-  width: 80%;
-  box-sizing: border-box;
-  padding: 0 20px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.description-block {
+  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a); /* Градиентный фон */
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #2b2b2b;
+  width: 70%;
+}
+
+
+.description-block p {
+  font-size: 19px;
+  color: #e9e9e9;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 300;
+  width: 90%;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  padding-left: 20px;
+  border-left: 5px solid #FFC000;
 }
 
 .column {
@@ -133,40 +152,33 @@ export default {
   width: 100%;
   box-sizing: border-box;
   transition: opacity 0.5s;
-  color: #e9e9e9;
-}
-
-.column p {
-  font-size: 19px;
-  background-color: #0f0f0f;
-  padding: 20px;
-  border-radius: 20px;
+  color: #ffffff;
 }
 
 .icon-column {
   width: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-
+  text-align: left;
 }
 
 .column svg {
   width: 50px;
   height: 50px;
   flex-shrink: 0;
+  margin-right: 15px;
 }
 
 .column h2, .column p {
   text-align: left;
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 .column h2 {
-  font-size: px;
-  color: #C4C3C3;
-  text-align: center;
+  font-size:  20px;
+  color: #ffffff;
+  text-align: left;
 }
 
 .row {
@@ -205,8 +217,10 @@ export default {
   text-align: center;
   width: 80%;
   color: #e9e9e9;
-  margin-top: 60px;
-  margin-bottom: 40px;
+  font-size:16px;
+  margin-bottom: 10px;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
 .svg_position {

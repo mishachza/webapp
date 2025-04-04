@@ -1,10 +1,5 @@
 <template>
   <div class="container" id="description-page">
-    <div class="left-aligned">
-      <h2>TG МАСТЕР</h2>
-      <h3>Лучшие инструменты по генерации прибыли в Телеграм, которые позволяют привлечь к вашему продукту или услуге целевую аудиторию </h3>
-    </div>
-
     <div class="center-aligned">
       <div class="column" id="column1">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
@@ -42,7 +37,7 @@ export default {
       if (index < columns.length) {
         columns[index].classList.add('show');
         index++;
-        setTimeout(showColumn, 800); // Показывает каждый элемент через 800 мс
+        setTimeout(showColumn, 800);
       }
     }
 
@@ -57,8 +52,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center; /* Центрирование по вертикали */
   width: 100%;
+  height: 100vh;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   background-color: #131313;
   overflow-y: auto; /* Позволяет появиться полосе прокрутки */
@@ -71,7 +67,7 @@ export default {
   flex-direction: row;
   align-items: center;
   text-align: left;
-  margin: 5px;
+  margin: 35px 0; /* Расстояние между строками */
   width: 100%;
   box-sizing: border-box;
   opacity: 0; 
@@ -87,7 +83,7 @@ export default {
 .column svg {
   width: 50px;
   height: 50px;
-  margin: 20px;
+  margin-right: 30px;
 }
 
 /* Добавьте это для управления размерами элементов */
@@ -97,18 +93,6 @@ export default {
   align-items: center;
   text-align: center;
   width: 90%;
-  margin-bottom: 20px;
   justify-content: space-between;
-  flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
 }
-
-.left-aligned {
-  text-align: left;
-  margin-bottom: 10px;
-  font-weight: 300;
-  margin-top: 20px;
-  width: 90%;
-  flex-grow: 1; /* Позволяет элементу занимать доступное пространство */
-}
-
 </style>
