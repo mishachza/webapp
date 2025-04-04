@@ -87,7 +87,7 @@
   background-position: center; /* Позиция изображения */
   background-repeat: no-repeat; /* Изображение не должно повторяться */
   margin: 20px auto; 
-  margin-top: 10%;/* Отступы и выравнивание по центру */
+  margin-top: 30px;/* Отступы и выравнивание по центру */
   border-radius: 25px; /* Закругленные углы */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: 90%;
@@ -99,7 +99,6 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  margin-top: 20px;
 }
 
 .logo-block {
@@ -110,7 +109,7 @@
   font-size: 30px;
   font-weight: 500;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .logo-block svg {
