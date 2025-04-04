@@ -169,7 +169,7 @@
 }
 
 .arrow-down-svg {
-  margin: 25px;
+  margin: 10px;
   animation: move-up-down 2s infinite;
 }
 
