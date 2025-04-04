@@ -120,7 +120,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-size: 40px;
+  font-size: 250%;
   font-weight: bold;
   width: 100%;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
