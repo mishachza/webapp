@@ -87,7 +87,7 @@
   background-position: center; /* Позиция изображения */
   background-repeat: no-repeat; /* Изображение не должно повторяться */
   margin: 20px auto; 
-  margin-top: 80px;/* Отступы и выравнивание по центру */
+  margin-top: 10%;/* Отступы и выравнивание по центру */
   border-radius: 25px; /* Закругленные углы */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: 90%;
