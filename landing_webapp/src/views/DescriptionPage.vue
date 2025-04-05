@@ -50,7 +50,7 @@ export default {
   align-items: center;
   justify-content: center; /* Центрирование по вертикали */
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #131313;
   overflow-y: auto; /* Позволяет появиться полосе прокрутки */
   overflow-x: hidden;

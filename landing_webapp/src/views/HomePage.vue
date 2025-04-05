@@ -181,6 +181,7 @@
 }
 
 .arrow-down-svg {
+  margin-top: 20px;
   animation: move-up-down 2s infinite;
 }
 
