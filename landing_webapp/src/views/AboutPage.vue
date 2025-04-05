@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="about-page">
-    <div class="tg-maser-row">Что входит услугу TG Master:</div>
+    <div class="tg-maser-row">ЧТО ВХОДИТ УСЛУГУ TG MASTER:</div>
     <div class="center-aligned">
       <div v-for="(item, index) in items" :key="index" class="column" ref="columns">
         <div class="row">
@@ -120,7 +120,7 @@ export default {
   margin-bottom: 20px;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-size: 25px;
-  font-weight: bold;
+  font-weight: 400;
   animation: move-up-down 2s infinite;
 }
 
