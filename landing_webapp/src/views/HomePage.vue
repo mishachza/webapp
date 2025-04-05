@@ -113,6 +113,7 @@
   font-weight: bold;
   width: 100%;
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .logo-block svg {
@@ -123,7 +124,7 @@
   display: flex;
   flex-direction: column;
   /* text-align: left; */
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   width: 100%;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
