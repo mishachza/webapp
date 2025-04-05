@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="about-page">
-    <div class="tg-maser-row">ЧТО ВХОДИТ УСЛУГУ TG MASTER:</div>
+    <div class="tg-maser-row">ЧТО ВХОДИТ В УСЛУГУ TG MASTER:</div>
     <div class="center-aligned">
       <div v-for="(item, index) in items" :key="index" class="column" ref="columns">
         <div class="row">
@@ -71,8 +71,8 @@ export default {
         },
         {
           icon: PersonalizirovannieRecomendaciiIcon,
-          title: 'ПЕРСОНАЛИЗИРОВАННЫЕ РЕКОМЕНДАЦИИ',
-          description: 'Персонализированные рекомендации: Индивидуальные советы помогут вам лучше адаптировать стратегию ведения канала под ваши нужды и цели.',
+          title: 'ПЕРСОНАЛЬНЫЕ РЕКОМЕНДАЦИИ',
+          description: 'Индивидуальные советы помогут вам лучше адаптировать стратегию ведения канала под ваши нужды и цели.',
         },
       ],
     };

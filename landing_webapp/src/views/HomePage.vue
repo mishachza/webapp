@@ -70,7 +70,7 @@
 .column {
   width: 100%;
   max-width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   padding: 25px;
   align-items: center;
