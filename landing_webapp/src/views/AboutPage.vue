@@ -129,7 +129,7 @@ export default {
   padding: 20px;
   border-radius: 20px;
   border: 2px solid #2b2b2b;
-  width: 70%;
+  width: 80%;
 }
 
 
