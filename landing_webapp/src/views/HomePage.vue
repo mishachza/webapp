@@ -9,12 +9,13 @@
           {{ text1 }}
         </div>
 
-        <img :src="imageUrl" alt="Изображение" class="image">
-
         <div class="text-block">
           {{ text2 }} <br>
           <!-- {{ text3 }} -->
         </div>
+
+        <img :src="imageUrl" alt="Изображение" class="image">
+
 
         <button @click="openLink" class="yellow-button">{{ buttonText }}</button>
 
