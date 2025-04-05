@@ -13,7 +13,7 @@
 
         <div class="text-block">
           {{ text2 }} <br>
-          {{ text3 }}
+          <!-- {{ text3 }} -->
         </div>
 
         <button @click="openLink" class="yellow-button">{{ buttonText }}</button>
@@ -49,10 +49,10 @@
     const router = useRouter()
     
     const text1 = ref('TG МАСТЕР')
-    const text2 = ref('Универсальное решение')
+    const text2 = ref('УНИВЕРСАЛЬНОЕ РЕШЕНИЕ ДЛЯ ОНЛАЙН РЕКЛАМЫ ВАШИХ ПРОДУКТОВ')
     const text3 = ref('для онлайн рекламы ваших продуктов')
     const text4 = ref('Лучшие инструменты по генерации прибыли в Телеграм, которые позволяют привлечь к вашему продукту или услуге')
-    const text5 = ref('целевую аудиторию')
+    const text5 = ref('ЦЕЛЕВУЮ АУДИТОРИЮ')
     const text6 = ref('')
     // const text2 = ref('УНИВЕРСАЛЬНОЕ РЕШЕНИЕ ДЛЯ ОНЛАЙН РЕКЛАМЫ ВАШИХ ПРОДУКТОВ')
     const buttonText = ref('СВЯЗАТЬСЯ')
@@ -98,6 +98,7 @@
 
 .top-content img {
   width: 70%;
+  margin-bottom: 25px;
 }
 
 .logo-block {
@@ -126,6 +127,8 @@
   width: 100%;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   /* margin-left: 60px; */
+  margin-bottom: 25px;
+
 }
 
 .text-block2 {
@@ -145,6 +148,7 @@
 
 .yellow-text {
   color: #FFC000; /* Желтый цвет */
+  font-weight: 400;
 }
 
 .yellow-button {
