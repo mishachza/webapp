@@ -74,7 +74,8 @@ export default {
   transform: scale(0.9);
   transition: opacity 0.5s, transform 0.5s;
   font-size: 16px;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 
 .column.show {

@@ -137,7 +137,7 @@ export default {
   font-size: 19px;
   color: #e9e9e9;
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
   width: 90%;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
