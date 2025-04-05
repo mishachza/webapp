@@ -113,7 +113,7 @@
   font-weight: bold;
   width: 100%;
   margin-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .logo-block svg {
